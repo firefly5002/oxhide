@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="oxhideRS" class="com.oxhide.rs.impl.OxhideRS" />
+	<bean id="attachmentRS" class="com.oxhide.rs.impl.AttachmentRS" />
+	<bean id="circleRS" class="com.oxhide.rs.impl.CircleRS" />
+	<bean id="iCareRS" class="com.oxhide.rs.impl.ICareRS" />
+	<bean id="loginRS" class="com.oxhide.rs.impl.LoginRS" />
+	<bean id="replyRS" class="com.oxhide.rs.impl.ReplyRS" />
+	<bean id="userRS" class="com.oxhide.rs.impl.UserRS" />
+
+	<jaxrs:server id="oxhide" address="/oxhide/">
+		<jaxrs:serviceBeans>
+			<ref bean="oxhideRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="attachment" address="/attachment/">
+		<jaxrs:serviceBeans>
+			<ref bean="attachmentRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="circle" address="/circle/">
+		<jaxrs:serviceBeans>
+			<ref bean="circleRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="icare" address="/icare/">
+		<jaxrs:serviceBeans>
+			<ref bean="iCareRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="login" address="/login/">
+		<jaxrs:serviceBeans>
+			<ref bean="loginRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="reply" address="/reply/">
+		<jaxrs:serviceBeans>
+			<ref bean="replyRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="user" address="/user/">
+		<jaxrs:serviceBeans>
+			<ref bean="userRS" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+
+
+
+</beans>
